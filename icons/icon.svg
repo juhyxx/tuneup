@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Tuner gauge on the panel tile shared with Scalear and Pitcher: the orange centre tick is "in tune". -->
+  <defs>
+    <radialGradient id="sheen" cx="0" cy="0" r="1"><stop offset="0" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#1c1c1c"/>
+  <rect width="512" height="512" rx="112" fill="url(#sheen)"/>
+  <g filter="url(#glow)" opacity=".6">
+  <path d="M127.83 256.00L82.79 230.00" stroke="#ffa500" stroke-opacity=".85" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M131.15 217.59L107.37 196.17" stroke="#ffa500" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M157.25 194.09L138.44 168.20" stroke="#ffa500" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M187.67 176.52L174.65 147.29" stroke="#ffa500" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M221.07 165.67L214.42 134.37" stroke="#ffa500" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M256.00 182.00L256.00 130.00" stroke="#ffa500" stroke-opacity="1" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M290.93 165.67L297.58 134.37" stroke="#ffa500" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M324.33 176.52L337.35 147.29" stroke="#ffa500" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M354.75 194.09L373.56 168.20" stroke="#ffa500" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M380.85 217.59L404.63 196.17" stroke="#ffa500" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M384.17 256.00L429.21 230.00" stroke="#ffa500" stroke-opacity=".85" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M256 330L294.59 203.77" stroke="#ffa500" stroke-width="20.00" stroke-linecap="round"/>
+  <circle cx="256" cy="330" r="26.00" fill="#ffa500"/>
+  </g>
+  <path d="M127.83 256.00L82.79 230.00" stroke="#ffffff" stroke-opacity=".85" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M131.15 217.59L107.37 196.17" stroke="#ffffff" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M157.25 194.09L138.44 168.20" stroke="#ffffff" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M187.67 176.52L174.65 147.29" stroke="#ffffff" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M221.07 165.67L214.42 134.37" stroke="#ffffff" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M256.00 182.00L256.00 130.00" stroke="#ffa500" stroke-opacity="1" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M290.93 165.67L297.58 134.37" stroke="#ffffff" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M324.33 176.52L337.35 147.29" stroke="#ffffff" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M354.75 194.09L373.56 168.20" stroke="#ffffff" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M380.85 217.59L404.63 196.17" stroke="#ffffff" stroke-opacity=".5" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M384.17 256.00L429.21 230.00" stroke="#ffffff" stroke-opacity=".85" stroke-width="17.00" stroke-linecap="round"/>
+  <path d="M256 330L294.59 203.77" stroke="#ffa500" stroke-width="20.00" stroke-linecap="round"/>
+  <circle cx="256" cy="330" r="26.00" fill="#ffa500"/>
+</svg>

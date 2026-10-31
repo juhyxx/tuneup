@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#1c1c1c"/>
+  <path d="M159.87 254.50L126.10 235.00" stroke="#ffffff" stroke-opacity=".85" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M162.36 225.69L144.53 209.63" stroke="#ffffff" stroke-opacity=".5" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M181.94 208.06L167.83 188.65" stroke="#ffffff" stroke-opacity=".5" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M204.75 194.89L194.99 172.97" stroke="#ffffff" stroke-opacity=".5" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M229.80 186.75L224.81 163.28" stroke="#ffffff" stroke-opacity=".5" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M256.00 199.00L256.00 160.00" stroke="#ffa500" stroke-opacity="1" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M282.20 186.75L287.19 163.28" stroke="#ffffff" stroke-opacity=".5" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M307.25 194.89L317.01 172.97" stroke="#ffffff" stroke-opacity=".5" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M330.06 208.06L344.17 188.65" stroke="#ffffff" stroke-opacity=".5" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M349.64 225.69L367.47 209.63" stroke="#ffffff" stroke-opacity=".5" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M352.13 254.50L385.90 235.00" stroke="#ffffff" stroke-opacity=".85" stroke-width="12.75" stroke-linecap="round"/>
+  <path d="M256 310L284.94 215.33" stroke="#ffa500" stroke-width="15.00" stroke-linecap="round"/>
+  <circle cx="256" cy="310" r="19.50" fill="#ffa500"/>
+</svg>

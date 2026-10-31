@@ -1,0 +1,69 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # No build step: publish only the files the app needs.
+      - name: Collect site files
+        run: |
+          mkdir -p _site/fonts
+          cp -r index.html sw.js manifest.webmanifest logo.svg src icons _site/
+          rm _site/icons/maskable.svg # source of maskable-512.png, not used by the app
+          cp fonts/*.woff2 fonts/*.ttf _site/fonts/
+
+      # The service worker caches the files it lists, for offline use. A file it misses
+      # won't work offline; a listed file that doesn't exist stops it from installing at all.
+      - name: Check the service worker's file list
+        working-directory: _site
+        run: |
+          ok=1
+          for f in $(find . -type f ! -name sw.js ! -name maskable.svg | sed 's#^\./##' | sort); do
+            grep -q "'$f'" sw.js || { echo "::error::sw.js doesn't list $f"; ok=0; }
+          done
+          for f in $(grep -oE "^  '[^']+'" sw.js | tr -d " '"); do
+            [ "$f" = ./ ] || [ -f "$f" ] || { echo "::error::sw.js lists $f, which doesn't exist"; ok=0; }
+          done
+          [ $ok = 1 ]
+
+      # Cache busting: the commit hash goes on the src/ URLs (index.html, sw.js and the modules'
+      # imports of each other) as ?v=<hash> and names the service worker's cache, so browsers
+      # fetch the new files instead of mixing a new page with old scripts.
+      - name: Stamp the version
+        working-directory: _site
+        run: |
+          v="${GITHUB_SHA::7}"
+          sed -i -E "s#([\"'])(src/[A-Za-z0-9._/-]+\.(js|css))([\"'])#\1\2?v=$v\4#g" index.html sw.js
+          sed -i -E "s#((from|import) '\.\.?/[A-Za-z0-9._/-]+\.js)'#\1?v=$v'#g" src/*.js
+          sed -i "s|^const VERSION = 'dev';|const VERSION = '$v';|" sw.js
+          grep -qxF "const VERSION = '$v';" sw.js
+          grep -qF "src/main.js?v=$v\"" index.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

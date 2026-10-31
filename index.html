@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tune It Up</title>
+  <meta name="description" content="Chromatic tuner. Works offline.">
+  <meta name="theme-color" content="#1c1c1c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Tune It Up">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="fonts/Silkscreen-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="src/styles.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./" aria-label="Tune It Up"><img class="brand-logo" src="logo.svg" alt="Tune It Up" width="190" height="40"></a>
+    <p class="hint" id="hint" data-i18n="hint.idle">Play a note</p>
+    <div class="top-actions">
+      <button type="button" id="settingsBtn" class="btn icon" aria-label="Settings" data-i18n-label="settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="7" r="2.2" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="10" cy="17" r="2.2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="meter" aria-live="polite">
+      <div class="left">
+        <div class="readout screen idle" id="readout">
+          <div class="note"><span id="noteName"></span></div>
+        </div>
+        <div class="analysis">
+          <div class="screen"><canvas class="plot" id="wave" aria-hidden="true"></canvas></div>
+          <div class="screen"><canvas class="plot" id="spectrum" aria-hidden="true"></canvas></div>
+        </div>
+      </div>
+      <div class="scale screen">
+        <div class="bar" id="bar" role="meter" aria-orientation="vertical" aria-valuemin="-50" aria-valuemax="50" aria-valuenow="0"></div>
+        <span class="hz flag at-top" id="freq">0.0 Hz</span>
+        <span class="hz flag at-bottom" id="cents">0 ¢</span>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog id="settings" aria-label="Settings">
+    <form method="dialog">
+      <label class="module"><span class="module-label">
+        <span data-i18n="reference">Reference pitch A4</span> <output id="a4Out">440</output> Hz</span>
+        <input type="range" id="a4" min="415" max="466" step="1" value="440"></label>
+      <label class="module"><span class="module-label" data-i18n="input">Input device</span><select id="input"></select></label>
+      <label class="module"><span class="module-label" data-i18n="notation">Note names</span>
+        <select id="naming"><option value="B">C D E F G A B</option><option value="H">C D E F G A H</option></select></label>
+      <label class="module"><span class="module-label" data-i18n="language">Language</span><select id="lang"></select></label>
+      <button class="btn" data-i18n="close">Close</button>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><p class="noscript">Tune It Up needs JavaScript.</p></noscript>
+</body>
+</html>
